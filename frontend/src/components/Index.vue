@@ -12,7 +12,7 @@
               <v-list-item-content>
                 <div class="overline mb-4">Index Page</div>
                 <v-list-item-title class="headline mb-1">Login or Register</v-list-item-title>
-                <v-list-item-subtitle>That's gonna be a good project.</v-list-item-subtitle>
+                <v-list-item-subtitle>That's  gonna be a good project.</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
 
