@@ -4,9 +4,10 @@ Steps to prepare project:
  3. navigate to "/frontend" and run "npm install"
 
 Steps to run frontend:
- 1. run vue ui
- 2. in the vue ui dashboard (http://localhost:8000) go to project manager -> import -> select the "frontend" folder and import
- 3. go to tasks and run the "serve" task (use the "output" button to see when it's done)
+ 1. npm install -g @vue/cli if you didn't install it already.
+ 2. run vue ui
+ 3. in the vue ui dashboard (http://localhost:8000) go to project manager -> import -> select the "frontend" folder and import
+ 4. go to tasks and run the "serve" task (use the "output" button to see when it's done)
 
 
 Steps to run backend:
