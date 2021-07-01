@@ -26,7 +26,6 @@
               </v-text-field>
                 <v-text-field
                 v-model="password2"
-                v-validate="'confirmed:password'"
                 :type="showPassword ? 'text' : 'password'"
                 label="ParolaConfirm"
                 hint="Parolele trebuie sa coincida"
@@ -61,10 +60,12 @@ export default {
 <index v-if="show === 'index'" />
 */
   data: () => ({
+    email: null,
     password: null,
     password2: null,
     showPassword: false,
     show: null,
+    valid: true,
     rules: {
       email: value => {
         /* eslint-disable no-useless-escape */
