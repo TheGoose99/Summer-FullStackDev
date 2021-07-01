@@ -10,8 +10,9 @@
                 v-model="email"
                 type="text"
                 label="Email"
-                hint="email, duh!"
                 :rules="[rules.required, rules.email]"
+                :counter="30"
+                :maxlength= "maxEmail"
                 required>
                 </v-text-field>
                 <v-text-field
@@ -22,6 +23,8 @@
                 label="Parola"
                 hint="Trebuie sa contina minim o litera mare, mica, cifra, caract special!"
                 :rules="[rules.required, rules.password]"
+                :counter="25"
+                :maxlength= "maxPass"
                 required>
               </v-text-field>
                 <v-text-field
@@ -30,6 +33,8 @@
                 label="ParolaConfirm"
                 hint="Parolele trebuie sa coincida"
                 :rules="[ (password === password2) || 'Parolele nu coincid']"
+                :counter="25"
+                :maxlength= "maxPass"
                 required>
               </v-text-field>
               </v-form>
@@ -66,6 +71,8 @@ export default {
     showPassword: false,
     show: null,
     valid: true,
+    maxEmail: 30,
+    maxPass: 25,
     rules: {
       email: value => {
         /* eslint-disable no-useless-escape */

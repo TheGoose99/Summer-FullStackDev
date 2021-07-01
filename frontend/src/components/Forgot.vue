@@ -12,6 +12,7 @@
                 label="Email valid"
                 hint="email, duh!"
                 :rules="[rules.required, rules.email]"
+                :maxlength= "maxEmail"
                 required>
               </v-text-field>
               <v-text-field
@@ -22,6 +23,8 @@
                 label="Noua Parola"
                 hint="Trebuie sa contina minim o litera mare, mica, cifra, caract special!"
                 :rules="[rules.required, rules.password]"
+                :counter="25"
+                :maxlength= "maxPass"
                 required>
               </v-text-field>
               <v-text-field
@@ -30,6 +33,8 @@
                 label="Noua Parola Confirm"
                 hint=" Noua ta parola trebuie sa contina minim 8 caractere si sa includa o litera mare, mica, cifra, caract special"
                 :rules="[ (password === password2) || 'Parolele nu coincid']"
+                :counter="25"
+                :maxlength= "maxPass"
                 required>
                 </v-text-field>
             </v-form>
@@ -60,6 +65,8 @@ export default {
     alert: false,
     email: null,
     valid: true,
+    maxEmail: 30,
+    maxPass: 25,
     rules: {
       email: value => {
         /* eslint-disable no-useless-escape */

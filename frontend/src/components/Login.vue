@@ -12,6 +12,7 @@
                 label="Email"
                 hint="email, duh!"
                 :rules="[rules.required, rules.email]"
+                :maxlength= "maxEmail"
                 required>
               </v-text-field>
               <v-text-field
@@ -22,6 +23,7 @@
                 label="Parola"
                 hint="Trebuie sa contina minim o litera mare, mica, cifra, caract special!"
                 :rules="[rules.required, rules.password]"
+                :maxlength= "maxPass"
                 required>
               </v-text-field>
             </v-form>
@@ -52,6 +54,8 @@ export default {
     email: null,
     password: null,
     valid: true,
+    maxEmail: 30,
+    maxPass: 25,
     rules: {
       email: value => {
         /* eslint-disable no-useless-escape */
