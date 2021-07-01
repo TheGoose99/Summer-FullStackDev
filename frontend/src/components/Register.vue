@@ -125,6 +125,7 @@ export default {
           }
         } else {
           alert('All went according to plan!')
+          this.$router.push({ name: 'Login' })
         }
         this.$refs.form.reset()
       } catch (err) {

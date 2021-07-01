@@ -104,9 +104,10 @@ export default {
           },
           body: JSON.stringify(payload) // body data type must match "Content-Type" header
         })
+        this.snackbar = true
         if (!response.ok) {
           if (response.status === 401) {
-            alert('Bruh, unauthorized')
+            alert('Unauthorized - 401')
           } else if (response.status === 403) {
             alert('Bruh, it\'s the forbidden land')
           } else if (response.status === 404) {
@@ -115,12 +116,11 @@ export default {
             alert('Bruh, slow down')
           }
         } else {
-          alert('Bruh u golden!')
+          alert('You logged in')
         }
         this.$refs.form.reset()
       } catch (err) {
-        alert('Error bruh')
-        console.error(err)
+        alert('Something went wrong...')
       }
     },
     forgotPassword () {
