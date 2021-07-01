@@ -126,6 +126,7 @@ export default {
         } else {
           alert('All went according to plan!')
         }
+        this.$refs.form.reset()
       } catch (err) {
         alert('Eroare la inregistrare, bruh')
         console.error(err)

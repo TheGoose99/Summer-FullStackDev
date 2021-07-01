@@ -10,7 +10,6 @@
                 v-model="email"
                 type="text"
                 label="Email valid"
-                hint="email, duh!"
                 :rules="[rules.required, rules.email]"
                 :maxlength= "maxEmail"
                 required>
@@ -117,6 +116,7 @@ export default {
           } else if (response.status === 429) {
             alert('Bruh, slow down')
           }
+          this.$refs.form.reset()
         } else {
           alert('All went according to plan!')
         }

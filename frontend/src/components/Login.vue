@@ -10,7 +10,6 @@
                 v-model="email"
                 type="text"
                 label="Email"
-                hint="email, duh!"
                 :rules="[rules.required, rules.email]"
                 :maxlength= "maxEmail"
                 required>
@@ -118,6 +117,7 @@ export default {
         } else {
           alert('Bruh u golden!')
         }
+        this.$refs.form.reset()
       } catch (err) {
         alert('Error bruh')
         console.error(err)
