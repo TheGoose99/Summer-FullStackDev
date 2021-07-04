@@ -1,31 +1,23 @@
 <template>
-  <v-app>
-    <v-app-bar flat color="#009688" app fill-height>
-      <Nav />
-    </v-app-bar>
-
+  <v-app id='app'>
+    <div class="mx-0 d-flex flex">
     <v-main>
-      <router-view/>
+      <router-view name="sidebar"/>
+      <router-view name="topbar"/>
+      <router-view />
     </v-main>
+    </div>
 
   </v-app>
 </template>
 
 <script>
-import Nav from './components/NavBar_HomePage.vue'
 export default {
   name: 'App',
   components: {
-    Nav
   },
   data: () => ({
     //
   })
 }
 </script>
-
-<style>
-#app {
-  background-color: #A3D6F5
-}
-</style>

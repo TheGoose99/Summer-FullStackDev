@@ -61,24 +61,6 @@
         <span>Sign Up</span>
     </v-tooltip>
 
-    <v-tooltip bottom>
-        <template v-slot:activator="{ on, attrs }">
-        <v-btn icon @click="logout">
-            <router-link to="/" style="text-decoration: none; color: inherit;">
-                <v-icon
-                color="white"
-                dark
-                v-bind="attrs"
-                v-on="on"
-                large >
-                mdi-logout
-            </v-icon>
-            </router-link>
-        </v-btn>
-        </template>
-        <span>Logout</span>
-    </v-tooltip>
-
     </v-toolbar-items>
     </v-toolbar>
 </template>
@@ -89,6 +71,7 @@ export default {
   methods: {
     logout () {
       localStorage.removeItem('token')
+      this.$router.replace({ name: 'Login' })
     }
   }
 }
