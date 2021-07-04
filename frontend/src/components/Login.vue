@@ -117,6 +117,7 @@ export default {
           }
         } else {
           alert('You logged in')
+          this.$router.push({ name: 'Main' })
         }
         this.$refs.form.reset()
       } catch (err) {
