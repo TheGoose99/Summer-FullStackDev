@@ -26,8 +26,6 @@ export default {
 
 <style>
 #app {
-  background: url('../Img/Bg.jpg')
-    no-repeat center center fixed !important;
-  background-size: cover;
+  background-color: #A3D6F5
 }
 </style>
