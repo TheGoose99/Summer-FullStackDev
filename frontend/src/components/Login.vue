@@ -128,19 +128,6 @@ export default {
     forgotPassword () {
       this.$router.push({ name: 'Forgot' })
     }
-  },
-  actions: {
-    AutoLogin ({ commit }) {
-      const token = localStorage.getItem('token')
-      if (!token) {
-        return
-      }
-      const userId = localStorage.getItem('userId')
-      commit('authUser', {
-        idToken: token,
-        userId: userId
-      })
-    }
   }
 }
 </script>

@@ -11,9 +11,15 @@ export default new Vuex.Store({
   mutations: {
     setAuthentication (state, status) {
       state.authenticated = status
+    },
+    clearAuthentication (state) {
+      state.authenticated = false
     }
   },
   actions: {
+    clearAuthUser: ({ commit }) => {
+      commit('clearAuthentication')
+    }
   },
   modules: {
   }

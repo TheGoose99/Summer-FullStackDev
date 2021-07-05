@@ -5,17 +5,14 @@
         :color="color"
         :expand-on-hover="expandOnHover"
         :mini-variant="miniVariant"
-        :right="right"
         :permanent="permanent"
         :src="bg"
         absolute
-        dark
-      >
+        dark >
         <v-list
           dense
           nav
-          class="py-0"
-        >
+          class="py-0" >
           <v-list-item two-line :class="miniVariant && 'px-0'">
             <v-list-item-avatar>
               <img src="https://randomuser.me/api/portraits/men/81.jpg">
@@ -35,7 +32,7 @@
             :key="item.title"
             link
             :to="item.path"
-          >
+            @click="update(item.num)">
             <v-list-item-icon>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-icon>
@@ -47,13 +44,12 @@
 
             <v-divider
               v-else-if="item.divider"
-              :key="index"
-            ></v-divider>
+              :key="index">
+            </v-divider>
 
             <v-subheader
               v-else-if="item.header"
-              :key="item.header"
-            >
+              :key="item.header">
               {{ item.header }}
             </v-subheader>
           </template>
@@ -68,6 +64,7 @@ export default {
   data () {
     return {
       drawer: true,
+      el: 'Logout',
       items: [
         { divider: true },
         { header: 'Future labels' },
@@ -76,7 +73,7 @@ export default {
         { title: 'Register', icon: 'mdi-pencil', path: '/register' },
         { divider: true },
         { header: 'Actions' },
-        { title: 'Logout', icon: 'mdi-logout', path: '/' }
+        { title: 'Logout', icon: 'mdi-logout', num: 'handleLogOut' }
       ],
       color: 'primary',
       colors: [
@@ -94,6 +91,16 @@ export default {
   computed: {
     bg () {
       return this.background ? 'https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg' : undefined
+    }
+  },
+  methods: {
+    handleLogOut () {
+      this.$store.dispatch('clearAuthUser')
+      window.localStorage.removeItem('token')
+      this.$router.replace({ name: 'Login' })
+    },
+    update (method) {
+      this[method]()
     }
   }
 }
