@@ -1,84 +1,47 @@
 <template>
-    <v-toolbar color="#009688" flat>
-    <v-toolbar-title
-    class="title">Welcome To My VueJS Test Project!</v-toolbar-title>
-    <v-spacer></v-spacer>
+    <v-toolbar fixed color="teal lighten-1" dark >
+        <v-toolbar-title class="title">Welcome To My VueJS Test Project!</v-toolbar-title>
+        <v-divider></v-divider>
 
-    <v-toolbar-items>
-
-    <v-tooltip bottom>
+    <v-tooltip
+            bottom
+            v-for="item in items"
+            :key="item.title"
+            >
         <template v-slot:activator="{ on, attrs }">
         <v-btn icon>
-            <router-link to="/" style="text-decoration: none; color: inherit;">
+            <router-link :to="{ path:item.path }" style="text-decoration: none; color: inherit;">
+            <v-list-item-icon>
                 <v-icon
-                color="white"
                 dark
                 v-bind="attrs"
                 v-on="on"
                 large
                 md3 >
-                mdi-home
+                {{ item.icon }}
                 </v-icon>
+            </v-list-item-icon>
             </router-link>
         </v-btn>
         </template>
-        <span>Home</span>
+        <span>{{item.title}}</span>
     </v-tooltip>
 
-    <v-tooltip bottom>
-        <template v-slot:activator="{ on, attrs }">
-        <v-btn icon>
-            <router-link to="/login" style="text-decoration: none; color: inherit;">
-                <v-icon
-                color="white"
-                dark
-                v-bind="attrs"
-                v-on="on"
-                large >
-                mdi-account
-                </v-icon>
-            </router-link>
-        </v-btn>
-        </template>
-        <span>Login</span>
-    </v-tooltip>
-
-    <v-tooltip bottom>
-        <template v-slot:activator="{ on, attrs }">
-        <v-btn icon>
-            <router-link to="/register" style="text-decoration: none; color: inherit;">
-                <v-icon
-                color="white"
-                dark
-                v-bind="attrs"
-                v-on="on"
-                large >
-                mdi-pencil
-            </v-icon>
-            </router-link>
-        </v-btn>
-        </template>
-        <span>Sign Up</span>
-    </v-tooltip>
-
-    </v-toolbar-items>
     </v-toolbar>
 </template>
 
 <script>
 export default {
   name: 'NavBar',
-  methods: {
-    logout () {
-      localStorage.removeItem('token')
-      this.$router.replace({ name: 'Login' })
+  data () {
+    return {
+      items: [
+        { title: 'Home', icon: 'mdi-home', path: '/' },
+        { title: 'Login', icon: 'mdi-account', path: '/login' },
+        { title: 'Register', icon: 'mdi-pencil', path: '/register' }
+      ],
+      color: 'primary'
     }
   }
 }
 </script>
-
-<style>
-.title {
-    color: whitesmoke;
-}
-</style>

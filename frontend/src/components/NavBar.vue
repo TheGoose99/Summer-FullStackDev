@@ -22,15 +22,16 @@
             </v-list-item-avatar>
 
             <v-list-item-content>
-              <v-list-item-title>Hello</v-list-item-title>
-              <v-list-item-subtitle>There</v-list-item-subtitle>
+              <v-list-item-title>Welcome back,</v-list-item-title>
+              <v-list-item-subtitle>{user}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
 
           <v-divider></v-divider>
 
+          <template v-for="(item, index) in items">
           <v-list-item
-            v-for="item in items"
+            v-if="item.icon"
             :key="item.title"
             link
             :to="item.path"
@@ -43,6 +44,19 @@
               <v-list-item-title>{{ item.title }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+
+            <v-divider
+              v-else-if="item.divider"
+              :key="index"
+            ></v-divider>
+
+            <v-subheader
+              v-else-if="item.header"
+              :key="item.header"
+            >
+              {{ item.header }}
+            </v-subheader>
+          </template>
         </v-list>
       </v-navigation-drawer>
   </div>
@@ -55,9 +69,13 @@ export default {
     return {
       drawer: true,
       items: [
+        { divider: true },
+        { header: 'Future labels' },
         { title: 'Home', icon: 'mdi-home', path: '/' },
         { title: 'Login', icon: 'mdi-account', path: '/login' },
         { title: 'Register', icon: 'mdi-pencil', path: '/register' },
+        { divider: true },
+        { header: 'Actions' },
         { title: 'Logout', icon: 'mdi-logout', path: '/' }
       ],
       color: 'primary',
