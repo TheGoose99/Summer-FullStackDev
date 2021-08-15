@@ -10,17 +10,16 @@
             >
         <template v-slot:activator="{ on, attrs }">
         <v-btn icon>
-            <router-link :to="{ path:item.path }" style="text-decoration: none; color: inherit;">
-            <v-list-item-icon>
+            <router-link
+            :to="{ path:item.path }"
+            style="text-decoration: none; color: inherit;">
                 <v-icon
                 dark
                 v-bind="attrs"
                 v-on="on"
-                large
-                md3 >
+                large md3 >
                 {{ item.icon }}
                 </v-icon>
-            </v-list-item-icon>
             </router-link>
         </v-btn>
         </template>
