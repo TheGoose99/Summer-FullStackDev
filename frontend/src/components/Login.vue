@@ -107,7 +107,7 @@ export default {
         // this.snackbar = true
         if (!response.ok) {
           if (response.status === 401) {
-            alert('Unauthorized - 401')
+            alert('Unauthorized - 401  ssfs')
           } else if (response.status === 403) {
             alert('Bruh, it\'s the forbidden land')
           } else if (response.status === 404) {
