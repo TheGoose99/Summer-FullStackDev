@@ -108,6 +108,7 @@ export default {
         if (!response.ok) {
           if (response.status === 401) {
             alert('Unauthorized - 401')
+            alert('Unauthorized - 12421421414SDSD2')
           } else if (response.status === 403) {
             alert('Bruh, it\'s the forbidden land')
           } else if (response.status === 404) {
