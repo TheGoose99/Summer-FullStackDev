@@ -17,7 +17,8 @@
                 dark
                 v-bind="attrs"
                 v-on="on"
-                large md3 >
+                large md3
+                >
                 {{ item.icon }}
                 </v-icon>
             </router-link>

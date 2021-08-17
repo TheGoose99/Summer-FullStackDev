@@ -104,7 +104,7 @@ export default {
           },
           body: JSON.stringify(payload) // body data type must match "Content-Type" header
         })
-        this.snackbar = true
+        // this.snackbar = true
         if (!response.ok) {
           if (response.status === 401) {
             alert('Unauthorized - 401')
